@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/eez_BRA_1.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-38.49582171617961,-68.2931455408343],[9.325811760212343,-9.618518100243016]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var layer_OpenStreetMap_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OpenStreetMap_0;
+        map.addLayer(layer_OpenStreetMap_0);
+        function pop_eez_BRA_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MRGID'] !== null ? Autolinker.link(String(feature.properties['MRGID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['GeoName'] !== null ? Autolinker.link(String(feature.properties['GeoName'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MRGID_Ter1'] !== null ? Autolinker.link(String(feature.properties['MRGID_Ter1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Pol_type'] !== null ? Autolinker.link(String(feature.properties['Pol_type'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MRGID_Sov1'] !== null ? Autolinker.link(String(feature.properties['MRGID_Sov1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Territory1'] !== null ? Autolinker.link(String(feature.properties['Territory1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ISO_Ter1'] !== null ? Autolinker.link(String(feature.properties['ISO_Ter1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Sovereign1'] !== null ? Autolinker.link(String(feature.properties['Sovereign1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MRGID_Ter2'] !== null ? Autolinker.link(String(feature.properties['MRGID_Ter2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MRGID_Sov2'] !== null ? Autolinker.link(String(feature.properties['MRGID_Sov2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Territory2'] !== null ? Autolinker.link(String(feature.properties['Territory2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ISO_Ter2'] !== null ? Autolinker.link(String(feature.properties['ISO_Ter2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Sovereign2'] !== null ? Autolinker.link(String(feature.properties['Sovereign2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MRGID_Ter3'] !== null ? Autolinker.link(String(feature.properties['MRGID_Ter3'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MRGID_Sov3'] !== null ? Autolinker.link(String(feature.properties['MRGID_Sov3'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Territory3'] !== null ? Autolinker.link(String(feature.properties['Territory3'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ISO_Ter3'] !== null ? Autolinker.link(String(feature.properties['ISO_Ter3'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Sovereign3'] !== null ? Autolinker.link(String(feature.properties['Sovereign3'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['x_1'] !== null ? Autolinker.link(String(feature.properties['x_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['y_1'] !== null ? Autolinker.link(String(feature.properties['y_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MRGID_EEZ'] !== null ? Autolinker.link(String(feature.properties['MRGID_EEZ'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Area_km2'] !== null ? Autolinker.link(String(feature.properties['Area_km2'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eez_BRA_1_0() {
+            return {
+                pane: 'pane_eez_BRA_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,158,23,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eez_BRA_1');
+        map.getPane('pane_eez_BRA_1').style.zIndex = 401;
+        map.getPane('pane_eez_BRA_1').style['mix-blend-mode'] = 'normal';
+        var layer_eez_BRA_1 = new L.geoJson(json_eez_BRA_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eez_BRA_1',
+            layerName: 'layer_eez_BRA_1',
+            pane: 'pane_eez_BRA_1',
+            onEachFeature: pop_eez_BRA_1,
+            style: style_eez_BRA_1_0,
+        });
+        bounds_group.addLayer(layer_eez_BRA_1);
+        map.addLayer(layer_eez_BRA_1);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/eez_BRA_1.png" /> eez_BRA': layer_eez_BRA_1,"OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
