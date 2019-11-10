@@ -1,15 +1,15 @@
 var wms_layers = [];
 
 
-        var lyr_DarkMatter_0 = new ol.layer.Tile({
-            'title': 'Dark Matter',
+        var lyr_OpenStreetMap_0 = new ol.layer.Tile({
+            'title': 'OpenStreetMap',
             'type': 'base',
             'opacity': 1.000000,
             
             
             source: new ol.source.XYZ({
-    attributions: ' &middot; <a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
-                url: 'http://a.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}@2x.png'
+    attributions: ' ',
+                url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
             })
         });
 var format_EEZ_1 = new ol.format.GeoJSON();
@@ -111,8 +111,8 @@ var lyr_MarineEcosystems_7 = new ol.layer.Vector({
                 title: '<img src="styles/legend/MarineEcosystems_7.png" /> Marine Ecosystems'
             });
 
-lyr_DarkMatter_0.setVisible(true);lyr_EEZ_1.setVisible(true);lyr_MarineHabitats_2.setVisible(true);lyr_MPAs_3.setVisible(true);lyr_ArtificialReefs_4.setVisible(true);lyr_ImportantWetlands_5.setVisible(true);lyr_EspecialEnvironments_6.setVisible(true);lyr_MarineEcosystems_7.setVisible(true);
-var layersList = [lyr_DarkMatter_0,lyr_EEZ_1,lyr_MarineHabitats_2,lyr_MPAs_3,lyr_ArtificialReefs_4,lyr_ImportantWetlands_5,lyr_EspecialEnvironments_6,lyr_MarineEcosystems_7];
+lyr_OpenStreetMap_0.setVisible(true);lyr_EEZ_1.setVisible(true);lyr_MarineHabitats_2.setVisible(true);lyr_MPAs_3.setVisible(true);lyr_ArtificialReefs_4.setVisible(true);lyr_ImportantWetlands_5.setVisible(true);lyr_EspecialEnvironments_6.setVisible(true);lyr_MarineEcosystems_7.setVisible(true);
+var layersList = [lyr_OpenStreetMap_0,lyr_EEZ_1,lyr_MarineHabitats_2,lyr_MPAs_3,lyr_ArtificialReefs_4,lyr_ImportantWetlands_5,lyr_EspecialEnvironments_6,lyr_MarineEcosystems_7];
 lyr_EEZ_1.set('fieldAliases', {'MRGID': 'MRGID', 'GeoName': 'GeoName', 'MRGID_Ter1': 'MRGID_Ter1', 'Pol_type': 'Pol_type', 'MRGID_Sov1': 'MRGID_Sov1', 'Territory1': 'Territory1', 'ISO_Ter1': 'ISO_Ter1', 'Sovereign1': 'Sovereign1', 'MRGID_Ter2': 'MRGID_Ter2', 'MRGID_Sov2': 'MRGID_Sov2', 'Territory2': 'Territory2', 'ISO_Ter2': 'ISO_Ter2', 'Sovereign2': 'Sovereign2', 'MRGID_Ter3': 'MRGID_Ter3', 'MRGID_Sov3': 'MRGID_Sov3', 'Territory3': 'Territory3', 'ISO_Ter3': 'ISO_Ter3', 'Sovereign3': 'Sovereign3', 'x_1': 'x_1', 'y_1': 'y_1', 'MRGID_EEZ': 'MRGID_EEZ', 'Area_km2': 'Area_km2', });
 lyr_MarineHabitats_2.set('fieldAliases', {'ambiente': 'ambiente', 'Meta': 'Meta', 'Just_Alvo': 'Just_Alvo', 'Fonte': 'Fonte', 'Sist_Cord': 'Sist_Cord', 'Ano': 'Ano', 'Just_Meta': 'Just_Meta', 'Obs': 'Obs', 'Ref_Metodo': 'Ref_Metodo', 'Shape_Leng': 'Shape_Leng', 'Shape_Area': 'Shape_Area', });
 lyr_MPAs_3.set('fieldAliases', {'WDPAID': 'WDPAID', 'WDPA_PID': 'WDPA_PID', 'PA_DEF': 'PA_DEF', 'NAME': 'NAME', 'ORIG_NAME': 'ORIG_NAME', 'DESIG': 'DESIG', 'DESIG_ENG': 'DESIG_ENG', 'DESIG_TYPE': 'DESIG_TYPE', 'IUCN_CAT': 'IUCN_CAT', 'INT_CRIT': 'INT_CRIT', 'MARINE': 'MARINE', 'REP_M_AREA': 'REP_M_AREA', 'GIS_M_AREA': 'GIS_M_AREA', 'REP_AREA': 'REP_AREA', 'GIS_AREA': 'GIS_AREA', 'NO_TAKE': 'NO_TAKE', 'NO_TK_AREA': 'NO_TK_AREA', 'STATUS': 'STATUS', 'STATUS_YR': 'STATUS_YR', 'GOV_TYPE': 'GOV_TYPE', 'OWN_TYPE': 'OWN_TYPE', 'MANG_AUTH': 'MANG_AUTH', 'MANG_PLAN': 'MANG_PLAN', 'VERIF': 'VERIF', 'METADATAID': 'METADATAID', 'SUB_LOC': 'SUB_LOC', 'PARENT_ISO': 'PARENT_ISO', 'ISO3': 'ISO3', });
